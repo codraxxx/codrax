@@ -1,23 +1,51 @@
 <!DOCTYPE html>
-<body>
+<html>
+<head>
     <title>Codrax</title>
+    <style>
+        body {
+            background-color: darkkhaki;
+        }
+        #colorTextButton {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        #backgroundColorButton {
+            position: absolute;
+            top: 40px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nauci kako kodirati</h1>
+    <h3>1. Korak</h3>
+    <p>Instaliraj aplikaciju <strong>Visual Studio Code</strong></p>
+    <img src="slike/studio.png" width="140">
+    <h3>2. Korak</h3>
+    <p>Kada sve namestis sve treba da bude kao na slici</p>
+    <img src="slike/kodova.png" width="400">
+    <p>Napravi novi folder po tvom imenu i klikni dugme file u lijevom gornjem uglu</p>
+    <img src="slike/files.png">
+    <h4>Pa zatim new file</h4>
+    <img src="slike/new.png">
+    <h4>I tako napravi tri nova fajla i nazovi ih isto kao na slici</h4>
+    <h2>3. Korak</h2>
+    <p><strong>Uradi isto što je na slici</strong></p>
+    <img src="slike/sajt.png">
+    <button id="colorTextButton">boja teksta</button>
+    <button id="backgroundColorButton">boja pozadine</button>
+    <script>
+        document.getElementById("colorTextButton").addEventListener("click", function() {
+            var color = prompt("Unesite boju za tekst:");
+            document.body.style.color = color;
+        });
+
+        document.getElementById("backgroundColorButton").addEventListener("click", function() {
+            var color = prompt("Unesite boju za pozadinu:");
+            document.body.style.backgroundColor = color;
+        });
+    </script>
 </body>
-
-<body style="background-color: darkkhaki;">
-
-<h1>Nauci kako kodirati</h1>
-<h3>1.Korak</h3>
-<p>instaliraj aplikaciju <strong>visual studio code</strong></p>
-<img src="slike/studio.png" width="140">
-<h3>2.korak</h3>
-<p>kada sve namestis sve treba da bude kao na slici</p>
-<img src="slike/kodova.png" width="400">
-<p>napravi novi folder po tvom imenu i klikni dugme file u lijevom gornjem uglu</p>
-<img src="slike/files.png">
-<h4>pa zatim new file</h4>
-<img src="slike/new.png">
-<h4>I tako napravi tri nova fajla i nazovi ih isto kao 
-    na slici
-</h4>
-<h2>3.Korak</h2>
-<img src="slike/sajt.png">
+</html>
