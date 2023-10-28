@@ -2,23 +2,52 @@
 <html>
 <head>
     <title>Codrax</title>
+</head>
+<body>
+    <button onclick="doSomething()">about me</button>
+
+    <p id="test"></p>
+
+    <script>
+        function doSomething(){
+            document.getElementById("test").innerHTML = "moj mobilni telefon je 069 356 465 nazovite me ako bude nesto bilo najasno"
+        }
+    </script>
+
     <style>
         body {
-            background-color: darkkhaki;
+            background-color: skyblue;
         }
-        #colorTextButton {
+
+        /* Dodajte CSS stil za popup prozor */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .close {
             position: absolute;
             top: 10px;
             right: 10px;
-        }
-        #backgroundColorButton {
-            position: absolute;
-            top: 40px;
-            right: 10px;
+            cursor: pointer;
         }
     </style>
-</head>
-<body>
+
     <h1>Nauci kako kodirati</h1>
     <h3>1. Korak</h3>
     <p>Instaliraj aplikaciju <strong>Visual Studio Code</strong></p>
@@ -34,18 +63,45 @@
     <h2>3. Korak</h2>
     <p><strong>Uradi isto što je na slici</strong></p>
     <img src="slike/sajt.png">
-    <button id="colorTextButton">boja teksta</button>
-    <button id="backgroundColorButton">boja pozadine</button>
-    <script>
-        document.getElementById("colorTextButton").addEventListener("click", function() {
-            var color = prompt("Unesite boju za tekst:");
-            document.body.style.color = color;
-        });
+    <p><strong>Zatim klikni dugme save izadi i udi u sajt i cestitam napravio si prvi websajt</strong></p>
 
-        document.getElementById("backgroundColorButton").addEventListener("click", function() {
-            var color = prompt("Unesite boju za pozadinu:");
-            document.body.style.backgroundColor = color;
-        });
+    <!-- Dodajte HTML za popup prozor ispod vašeg postojećeg sadržaja -->
+    <button onclick="showQuestionPopup()">Postavi pitanje</button>
+
+    <div id="questionPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeQuestionPopup()">&times;</span>
+            <h2>Postavite pitanje</h2>
+            <input type="email" id="email" placeholder="Unesite svoj e-mail">
+            <textarea id="question" placeholder="Unesite svoje pitanje"></textarea>
+            <button onclick="sendQuestion()">OK</button>
+        </div>
+    </div>
+
+    <!-- Dodajte JavaScript kod za popup prozor ispod vašeg postojećeg JavaScript koda -->
+    <script>
+        function showQuestionPopup() {
+            document.getElementById("questionPopup").style.display = "block";
+        }
+
+        function closeQuestionPopup() {
+            document.getElementById("questionPopup").style.display = "none";
+        }
+
+        function sendQuestion() {
+            // Kod za slanje pitanja putem e-pošte
+            var email = document.getElementById("email").value;
+            var question = document.getElementById("question").value;
+            if (email && question) {
+                var subject = "Pitanje sa web sajta";
+                var body = "E-mail: " + email + "\n\nPitanje: " + question;
+                var mailtoLink = "mailto:maksimvico1102@gmail.com?subject=" + subject + "&body=" + body;
+                window.location.href = mailtoLink;
+                closeQuestionPopup();
+            } else {
+                alert("Molimo vas da unesete e-mail i pitanje.");
+            }
+        }
     </script>
 </body>
 </html>
