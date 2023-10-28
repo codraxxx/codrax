@@ -18,34 +18,6 @@
         body {
             background-color: skyblue;
         }
-
-        /* Dodajte CSS stil za popup prozor */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .popup-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
     </style>
 
     <h1>Nauci kako kodirati</h1>
@@ -64,44 +36,10 @@
     <p><strong>Uradi isto što je na slici</strong></p>
     <img src="slike/sajt.png">
     <p><strong>Zatim klikni dugme save izadi i udi u sajt i cestitam napravio si prvi websajt</strong></p>
-
-    <!-- Dodajte HTML za popup prozor ispod vašeg postojećeg sadržaja -->
-    <button onclick="showQuestionPopup()">Postavi pitanje</button>
-
-    <div id="questionPopup" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closeQuestionPopup()">&times;</span>
-            <h2>Postavite pitanje</h2>
-            <input type="email" id="email" placeholder="Unesite svoj e-mail">
-            <textarea id="question" placeholder="Unesite svoje pitanje"></textarea>
-            <button onclick="sendQuestion()">OK</button>
-        </div>
-    </div>
-
-    <!-- Dodajte JavaScript kod za popup prozor ispod vašeg postojećeg JavaScript koda -->
-    <script>
-        function showQuestionPopup() {
-            document.getElementById("questionPopup").style.display = "block";
-        }
-
-        function closeQuestionPopup() {
-            document.getElementById("questionPopup").style.display = "none";
-        }
-
-        function sendQuestion() {
-            // Kod za slanje pitanja putem e-pošte
-            var email = document.getElementById("email").value;
-            var question = document.getElementById("question").value;
-            if (email && question) {
-                var subject = "Pitanje sa web sajta";
-                var body = "E-mail: " + email + "\n\nPitanje: " + question;
-                var mailtoLink = "mailto:maksimvico1102@gmail.com?subject=" + subject + "&body=" + body;
-                window.location.href = mailtoLink;
-                closeQuestionPopup();
-            } else {
-                alert("Molimo vas da unesete e-mail i pitanje.");
-            }
-        }
-    </script>
+    <p><strong>Ako si sve tacno uradio to treba da izgleda ovako:</strong></p>
+    <img src="slike/slika.sajta.png" width="500" height="200">
+    <h1>Uljepsavanje sajta</h1>
+    <p><strong>Ako oces da malo napises nesto i uradis nesto na sajtu i da sajt bude koristan nauci sledece kodove</strong></p>
+    <img src="slike/znacenje.kodova.png">
 </body>
 </html>
